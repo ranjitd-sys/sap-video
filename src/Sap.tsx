@@ -5,9 +5,8 @@ import SAPFetchData from "./components/ui/fetch";
 import SAPConfiguration from "./components/ui/sapComfig";
 import SAPBranchWarehouseMapping from "./components/ui/sapWareHouse";
 import BranchWarehouseTable from "./components/ui/maketplace";
-import { Border } from "./components/ui/border";
 import SAPBusinessPartnerMapping from "./components/ui/business";
-import AllBusinessPartnersInfo from "./components/ui/allBp";
+
 import SideInfoPanel from "./components/ui/allBp";
 import { AnimatedZoom } from "./components/anime2";
 import SAPStockItemMapping from "./components/ui/stock";
