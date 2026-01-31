@@ -2,11 +2,22 @@ import { Html5Video, Sequence, staticFile, useCurrentFrame, interpolate, useVide
 import SAPOverview from "./components/ui/intro";
 import { AnimatedSlide } from "./components/animte";
 import SAPFetchData from "./components/ui/fetch";
+import SAPConfiguration from "./components/ui/sapComfig";
+import SAPBranchWarehouseMapping from "./components/ui/sapWareHouse";
+import BranchWarehouseTable from "./components/ui/maketplace";
+import { Border } from "./components/ui/border";
+import SAPBusinessPartnerMapping from "./components/ui/business";
+import AllBusinessPartnersInfo from "./components/ui/allBp";
+import SideInfoPanel from "./components/ui/allBp";
+import { AnimatedZoom } from "./components/anime2";
+import SAPStockItemMapping from "./components/ui/stock";
+import SAPSerialNumberValidation from "./components/ui/seialnumber";
+import SAPFinalSync from "./components/ui/sync";
 export function sapVideo() {
-    const frame = useCurrentFrame();
-    const { fps } = useVideoConfig();
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
 
-    const introOpacity = interpolate(
+  const introOpacity = interpolate(
     frame,
     [85, 100],
     [1, 0],
@@ -21,32 +32,190 @@ export function sapVideo() {
     { extrapolateRight: "clamp" }
   );
 
-    return   <div style={{ flex: 1, backgroundColor: "white" }}>
-      {/* INTRO */}
-      <Sequence from={0} durationInFrames={200}>
-        <div style={{ opacity: introOpacity }}>
-          <SAPOverview />
-        </div>
-      </Sequence>
+  return <div style={{ flex: 1, backgroundColor: "white" }}>
+    {/* INTRO */}
+    <Sequence from={0} durationInFrames={170}>
+      <AnimatedZoom durationInFrames={170}>
+        <SAPOverview />
+      </AnimatedZoom>
+    </Sequence>
 
-      {/* VIDEO */}
-      <Sequence from={100}>
-        <div style={{ opacity: videoOpacity }}>
-          <Html5Video src={staticFile("sap.mp4")} />
-        </div>
-      </Sequence>
-      {/* <Sequence from={140} durationInFrames={200}>
-        <AnimatedSlide durationInFrames={100}>
-            <SAPFetchData/>
+    {/* VIDEO */}
+    <Sequence from={150} durationInFrames={100}>
+      <div style={{ opacity: videoOpacity }}>
+        <Html5Video src={staticFile("sap.mp4")}
+        
+         style={{
+          transform: "translateY(-90px) ",
+          height: "calc(100% + 120px)",
+        }} />
+      </div>
+    </Sequence>
+
+    <Sequence from={250} durationInFrames={170}>
+      <AnimatedSlide durationInFrames={160}>
+        <SAPFetchData />
+      </AnimatedSlide>
+    </Sequence>
+
+    <Sequence from={405} durationInFrames={150}>
+      <div style={{ opacity: videoOpacity }}>
+        <Html5Video 
+         trimBefore={80}
+    trimAfter={200}
+        src={staticFile("sap.mp4")} style={{
+          transform: "translateY(-90px) ",
+          height: "calc(100% + 120px)",
+          
+        }} />
+      </div>
+    </Sequence>
+
+    <Sequence from={540} durationInFrames={170}>
+      <AnimatedSlide durationInFrames={170}>
+        <SAPConfiguration />
+      </AnimatedSlide>
+    </Sequence>
+
+      <Sequence from={692} durationInFrames={100}>
+      <div style={{ opacity: videoOpacity }}>
+        <Html5Video 
+         trimBefore={250}
+    trimAfter={350}
+        src={staticFile("sap.mp4")} style={{
+          transform: "translateY(-90px) ",
+          height: "calc(100% + 120px)",
+          
+        }} />
+      </div>
+    </Sequence>
+
+     <Sequence from={750} durationInFrames={170}>
+      <AnimatedSlide durationInFrames={170}>
+        <SAPBranchWarehouseMapping />
+      </AnimatedSlide>
+    </Sequence>
+
+
+      <Sequence from={900} durationInFrames={200}>
+      <div style={{ opacity: videoOpacity }}>
+        <Html5Video 
+         trimBefore={350}
+    trimAfter={700}
+    
+        src={staticFile("sap.mp4")} style={{
+          transform: "translateY(-90px) ",
+          height: "calc(100% + 120px)",
+          
+        }} />
+      </div>
+    </Sequence >
+
+      <Sequence from={980} durationInFrames={60}>
+        <AnimatedSlide durationInFrames={50}>
+          <BranchWarehouseTable/>
         </AnimatedSlide>
-      </Sequence> */}
+    </Sequence>
 
-      <Sequence from={163} durationInFrames={100}>
-  <Html5Video
-    src={staticFile("sap.mp4")}
-    trimBefore={90}
-    trimAfter={91} // render same frame repeatedly
-  />
-</Sequence>
-    </div>
+   <Sequence from={1073} durationInFrames={170}>
+        <AnimatedSlide durationInFrames={170}>
+          <SAPBusinessPartnerMapping/>
+        </AnimatedSlide>
+    </Sequence>
+
+
+      <Sequence from={1230} durationInFrames={200}>
+      <div style={{ opacity: videoOpacity }}>
+        <Html5Video 
+         trimBefore={600}
+    trimAfter={800}
+    
+        src={staticFile("sap.mp4")} style={{
+          transform: "translateY(-90px) ",
+          height: "calc(100% + 120px)",
+          
+        }} />
+      </div>
+    </Sequence >
+
+     <Sequence from={1260} durationInFrames={120}>
+      <AnimatedZoom durationInFrames={120}>
+
+       <SideInfoPanel
+  title="Business Partner Rules"
+  items={[
+    "B2C partners are marketplace & state-wise",
+    "B2B partners are created per transaction",
+    "GST data drives partner creation",
+    "Ensures compliant receivables posting",
+  ]}
+/>
+      </AnimatedZoom>
+
+    </Sequence>
+
+    <Sequence from={1420} durationInFrames={120}>
+      <AnimatedSlide durationInFrames={120}>
+        <SAPStockItemMapping/>
+      </AnimatedSlide>
+
+    </Sequence>
+
+        <Sequence from={1520} durationInFrames={200}>
+      <div style={{ opacity: videoOpacity }}>
+        <Html5Video 
+         trimBefore={1600}
+    trimAfter={1800}
+    
+        src={staticFile("sap.mp4")} style={{
+          transform: "translateY(-90px) ",
+          height: "calc(100% + 120px)",
+          
+        }} />
+      </div>
+    </Sequence >
+
+      <Sequence from={1703} durationInFrames={120}>
+      <AnimatedZoom durationInFrames={120}>
+        <SAPSerialNumberValidation/>
+      </AnimatedZoom>
+
+    </Sequence>
+
+     
+          <Sequence from={1820} durationInFrames={500}>
+      <div style={{ opacity: videoOpacity }}>
+        <Html5Video 
+         trimBefore={3300}
+    trimAfter={3800}
+    
+        src={staticFile("sap.mp4")} style={{
+          transform: "translateY(-90px) ",
+          height: "calc(100% + 120px)",
+          
+        }} />
+      </div>
+    </Sequence >
+    <Sequence from={2320} durationInFrames={120}>
+      <AnimatedSlide durationInFrames={120}>
+        <SAPFinalSync/>
+      </AnimatedSlide>
+
+    </Sequence>
+
+    <Sequence from={2420}>
+      <div style={{ opacity: videoOpacity }}>
+        <Html5Video 
+         trimBefore={5000}
+        
+        src={staticFile("sap.mp4")} style={{
+          transform: "translateY(-90px) ",
+          height: "calc(100% + 120px)",
+          
+        }} />
+      </div>
+    </Sequence >
+
+
+  </div>
 }

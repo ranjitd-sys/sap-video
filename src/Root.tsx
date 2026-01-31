@@ -8,10 +8,10 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="MyComp"
         component={sapVideo}
-        durationInFrames={10000}
+        durationInFrames={7000}
         fps={30}
         width={1280}
-        height={720}
+        height={650}
       />
     </>
   );
