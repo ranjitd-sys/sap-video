@@ -84,7 +84,7 @@ export default function SAPBranchWarehouseMapping() {
                   • Not yet available in SAP Business One
                 </li>
                 <li>
-                  • Can be mapped to existing SAP units or created directly
+                  • Can be mapped to existing SAP units 
                 </li>
               </ul>
             </div>
