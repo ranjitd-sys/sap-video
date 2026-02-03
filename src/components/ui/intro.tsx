@@ -22,7 +22,7 @@ export default function SAPOverview() {
   return (
     <div
       style={{
-        width: "120%",
+        width: "",
         height: "100%",
         position: "relative",
         background:

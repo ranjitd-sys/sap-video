@@ -13,6 +13,8 @@ import SAPStockItemMapping from "./components/ui/stock";
 import SAPSerialNumberValidation from "./components/ui/seialnumber";
 import SAPFinalSync from "./components/ui/sync";
 import {  DeepEcomSimpleSlide } from "./components/ui/final";
+import { FinalReveal } from "./components/last";
+import { ModernStart } from "./components/start";
 
 export function sapVideo() {
   const frame = useCurrentFrame();
@@ -36,13 +38,19 @@ export function sapVideo() {
   return <div style={{ flex: 1, backgroundColor: "white" }}>
     {/* INTRO */}
     <Sequence from={0} durationInFrames={170}>
-      <AnimatedZoom durationInFrames={170}>
+      <ModernStart durationInFrames={170}>
         <SAPOverview />
-      </AnimatedZoom>
+      </ModernStart>
+    </Sequence>
+
+    <Sequence from={170} durationInFrames={160}>
+      <AnimatedSlide durationInFrames={160}>
+        <SAPFetchData />
+      </AnimatedSlide>
     </Sequence>
 
     {/* VIDEO */}
-    <Sequence from={150} durationInFrames={100}>
+    <Sequence from={315} durationInFrames={100}>
       <div style={{ opacity: videoOpacity }}>
         <Html5Video src={staticFile("SAP-1.mp4")}
 
@@ -53,36 +61,18 @@ export function sapVideo() {
       </div>
     </Sequence>
 
-    <Sequence from={250} durationInFrames={170}>
-      <AnimatedSlide durationInFrames={160}>
-        <SAPFetchData />
-      </AnimatedSlide>
-    </Sequence>
-
-    <Sequence from={405} durationInFrames={150}>
-      <div style={{ opacity: videoOpacity }}>
-        <Html5Video
-          trimBefore={80}
-          trimAfter={200}
-          src={staticFile("SAP-1.mp4")} style={{
-            transform: "translateY(-90px) ",
-            height: "calc(100% + 120px)",
-
-          }} />
-      </div>
-    </Sequence>
-
-    <Sequence from={540} durationInFrames={170}>
+    
+    <Sequence from={415} durationInFrames={170}>
       <AnimatedSlide durationInFrames={170}>
         <SAPConfiguration />
       </AnimatedSlide>
     </Sequence>
 
-    <Sequence from={692} durationInFrames={100}>
+    <Sequence from={585} durationInFrames={170}>
       <div style={{ opacity: videoOpacity }}>
         <Html5Video
-          trimBefore={250}
-          trimAfter={350}
+          trimBefore={80}
+          trimAfter={250}
           src={staticFile("SAP-1.mp4")} style={{
             transform: "translateY(-90px) ",
             height: "calc(100% + 120px)",
@@ -90,6 +80,10 @@ export function sapVideo() {
           }} />
       </div>
     </Sequence>
+
+
+
+  
 
     <Sequence from={750} durationInFrames={170}>
       <AnimatedSlide durationInFrames={170}>
@@ -184,11 +178,11 @@ export function sapVideo() {
     </Sequence>
 
 
-    <Sequence from={1820} durationInFrames={200}>
+    <Sequence from={1820} durationInFrames={470}>
       <div style={{ opacity: videoOpacity }}>
         <Html5Video
           trimBefore={3300}
-          trimAfter={3800}
+          trimAfter={4000}
 
           src={staticFile("SAP-1.mp4")} style={{
             transform: "translateY(-90px) ",
@@ -197,18 +191,19 @@ export function sapVideo() {
           }} />
       </div>
     </Sequence >
-    <Sequence from={2000} durationInFrames={120}>
+
+    <Sequence from={2277} durationInFrames={120}>
       <AnimatedSlide durationInFrames={120}>
         <SAPFinalSync />
       </AnimatedSlide>
     </Sequence>
 
 
-    <Sequence from={2120} durationInFrames={100}>
+    <Sequence from={2390} durationInFrames={200}>
       <div style={{ opacity: videoOpacity }}>
         <Html5Video
-          trimBefore={3800}
-          trimAfter={3900}
+          trimBefore={6300}
+          trimAfter={6500}
 
           src={staticFile("SAP-1.mp4")} style={{
             transform: "translateY(-90px) ",
@@ -218,19 +213,19 @@ export function sapVideo() {
       </div>
     </Sequence >
 
-      <Sequence from={2200} durationInFrames={220}>
-      <AnimatedSlide durationInFrames={220}>
+      <Sequence from={2557} durationInFrames={200}>
+      <FinalReveal durationInFrames={190}>
         <DeepEcomSimpleSlide />
-      </AnimatedSlide>
+      </FinalReveal>
     </Sequence>
 
 
 
 
-    <Sequence from={2422}>
+    <Sequence from={2720}>
       <div style={{ opacity: videoOpacity }}>
         <Html5Video
-          trimBefore={3940}
+          trimBefore={6550}
 
           src={staticFile("SAP-1.mp4")} style={{
             transform: "translateY(-90px) ",
