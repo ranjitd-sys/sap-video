@@ -1,4 +1,4 @@
-import { Html5Video, Sequence, staticFile, useCurrentFrame, interpolate, useVideoConfig } from "remotion";
+import { Html5Video, Sequence, staticFile, useCurrentFrame, interpolate } from "remotion";
 import SAPOverview from "./components/ui/intro";
 import { AnimatedSlide } from "./components/animte";
 import SAPFetchData from "./components/ui/fetch";
@@ -18,14 +18,7 @@ import { ModernStart } from "./components/start";
 
 export function sapVideo() {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
-
-  const introOpacity = interpolate(
-    frame,
-    [85, 100],
-    [1, 0],
-    { extrapolateLeft: "clamp" }
-  );
+ 
 
   // 🟢 Enter video
   const videoOpacity = interpolate(
