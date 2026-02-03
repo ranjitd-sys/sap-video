@@ -199,11 +199,17 @@ export function sapVideo() {
     </Sequence>
 
 
-    <Sequence from={2390} durationInFrames={200}>
+
+
+    
+
+
+
+
+    <Sequence from={2400} durationInFrames={4021}>
       <div style={{ opacity: videoOpacity }}>
         <Html5Video
           trimBefore={6300}
-          trimAfter={6500}
 
           src={staticFile("SAP-1.mp4")} style={{
             transform: "translateY(-90px) ",
@@ -213,28 +219,11 @@ export function sapVideo() {
       </div>
     </Sequence >
 
-      <Sequence from={2557} durationInFrames={200}>
-      <FinalReveal durationInFrames={190}>
+      <Sequence from={6409} durationInFrames={250}>
+      <FinalReveal durationInFrames={250}>
         <DeepEcomSimpleSlide />
       </FinalReveal>
     </Sequence>
-
-
-
-
-    <Sequence from={2720}>
-      <div style={{ opacity: videoOpacity }}>
-        <Html5Video
-          trimBefore={6550}
-
-          src={staticFile("SAP-1.mp4")} style={{
-            transform: "translateY(-90px) ",
-            height: "calc(100% + 120px)",
-
-          }} />
-      </div>
-    </Sequence >
-
 
   </div>
 }
